@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mood Quotes Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #e6e6fa;
+      margin: 5px;
+      padding: 0;
+    }
+
+    h1 {
+      margin-top: 35px;
+      font-size: 29px;
+    }
+
+    select, button {
+      padding: 12px 18px;
+      margin-top: 10px;
+      font-size: 16px;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+    }
+
+    #quote {
+      margin: 25px auto;
+      padding: 20px;
+      max-width: 90%;
+      background: #fff;
+      border-radius: 13px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      text-align: center;
+      font-size: 21px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>How are you feeling?</h1>
+  <select id="mood">
+    <option value="happy">Happy</option>
+    <option value="sad">Sad</option>
+    <option value="angry">Angry</option>
+    <option value="motivate">Motivate</option>
+  </select>
+  <br>
+  <button onclick="getQuote()">Get Quote</button>
+  <div id="quote"></div>
+
+  <script>
+    const quotes = {
+      happy: [
+        "Happiness is a direction, not a place.",
+        "The best way to cheer yourself is to try to cheer someone else up.",
+        "Enjoy the little things in life, for one day you’ll look back and realize they were the big things.",
+        "Happiness is a decision.",
+        "Happiness starts with ourselves.",
+        "Laughing is a key to healthy life"
+      ],
+      sad: [
+        "The purpose of our lives is to be happy.",
+        "Tough times never last, but tough people do.",
+        "Sadness flies away on the wings of time.",
+        "It's ok to cry, it's ok to struggle, it's ok to try again but it's not ok to stay still.",
+        "We can choose happiness to avoid sadness."
+      ],
+      angry: [
+        "For every minute you remain angry, you give up sixty seconds of peace of mind.",
+        "Speak when you are angry and you will make the best speech you will ever regret.",
+        "Anger doesn’t solve anything. It builds nothing, but it can destroy everything."
+      ],
+      motivate: [
+        "Start today to make tomorrow easy.",
+        "You only fail if you stop trying.",
+        "Chase your dreams to make it real.",
+        "Trying something is better than doing nothing."
+      ]
+    };
+
+    function getQuote() {
+      const mood = document.getElementById("mood").value;
+      const moodQuotes = quotes[mood];
+      const randomIndex = Math.floor(Math.random() * moodQuotes.length);
+      document.getElementById("quote").textContent = moodQuotes[randomIndex];
+    }
+  </script>
+</body>
+</html>
